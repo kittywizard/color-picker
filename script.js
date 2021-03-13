@@ -20,9 +20,6 @@ function displayColors() {
     }
 }
 
-//to-do:
-    //determine if a light or dark hex color and change the text color based on it
-
 function determineColor(hexcode) {
     //reset variables
     hexArray = [];
