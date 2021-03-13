@@ -1,16 +1,20 @@
 
 let colorNum = 16;
 let colorArray = [];
+let hexArray = [];
+let light = 0,
+    dark = 0;
+
 
 const containerDiv = document.querySelector(".container");
 
-  //need to loop the function X number of times to get enough for a grid
 function displayColors() {
     for(let i = 0; i < colorNum; i++) {
-        let result = randomHex();
-        let div = document.createElement("div");
+     let result = randomHex();
+     let div = document.createElement("div");
         div.textContent = result;
         div.style.background = result;
+        div.style.color = determineColor(result);
         div.classList.add("flex-div");
         containerDiv.appendChild(div);
     }
@@ -19,34 +23,22 @@ function displayColors() {
 //to-do:
     //determine if a light or dark hex color and change the text color based on it
 
-function determineColor() {
-    let example = randomHex();
+function determineColor(hexcode) {
+    //reset variables
+    hexArray = [];
+    colorArray = [];
+    light = 0;
+    dark = 0;
 
-    //00 - 0 (more color - closer to black)
-    //FF - 255 (less color - closer to white)
+    colorArray.push(hexcode.slice(1,3), hexcode.slice(3,5), hexcode.slice(5,8));
+    colorArray.forEach(color => hexArray.push(parseInt(color, 16)));
 
-    //convert back into a hexidecimal number? 
-    //then can check it's range and determine if it's on the lighter end or not
-    //pick a spot somewhere in the middle - 127.5 
-    //if number is > 127.5, make it 'dark, less than 127.5 it is a 'light' color
-
-    let red = example.slice(1,3), 
-    green = example.slice(3,5), 
-    blue = example.slice(5,8);
-
-    //colorArray.push(example.slice(1,2), example.slice(2,3), example.slice(3,4), example.slice(4,5), example.slice(5,6), example.slice(6,7));
-    
-    for (let index = 0; index < example.length; index++) {if(index !== 0){colorArray.push(example.slice(index, index+1));}}
-
-    console.log(colorArray)
-    //string length of 7
-    // NEVER need the character at position 0
-    //want to push each other character individually to the array
-    console.log(red + " " + green + " " + blue);
+    hexArray.forEach(hex => hex < 127.5 ? light++ : dark++);
+    return light >= dark ?  "#FFF" :  "#000";
 }
 
 displayColors();
-determineColor();
+
 
 //randomHex courtesy of : https://github.com/noops-challenge/hexbot#note-to-developers
 function randomHex() {
