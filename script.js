@@ -1,5 +1,5 @@
 
-let colorNum = 16;
+let colorNum = 5;
 let colorArray = [];
 let hexArray = [];
 let light = 0,
