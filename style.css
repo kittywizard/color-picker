@@ -37,18 +37,20 @@ body {
 }
 
 h3 {
-    margin: 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 ul {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
 }
 
 ul li {
     list-style-type: none;
+    text-align: center;
+    padding: 0.1em;
 }
 
 ul li a {
@@ -67,4 +69,5 @@ ul li a:focus {
 
 footer {
     grid-area: footer;
+    margin-top: 1em;
 }
