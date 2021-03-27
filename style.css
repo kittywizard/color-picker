@@ -5,7 +5,7 @@ body {
     font-weight: 700;
     display: grid;
     grid-template-columns: minmax(100px, 1fr) 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 200px 2fr 1fr;
     grid-template-areas: 
         "header header header"
         "content content content"
@@ -16,6 +16,7 @@ body {
     width: 100%;
     display: flex;
     grid-area: content;
+    flex-direction: column;
 }
 
 .flex-div {
@@ -24,9 +25,44 @@ body {
     text-align: center;
 }
 
+/* header and nav nonsense */
+
 .header {
     background: rgb(207, 234, 235);
     grid-area: header;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+h3 {
+    margin: 0;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: rgb(19, 126, 129);
+    text-transform: uppercase;
+    letter-spacing: 1;
+}
+
+ul li a:hover, 
+ul li a:focus {
+    color:rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(19, 126, 129);
+    background: rgba(169, 198, 199, 0.5);
 }
 
 footer {
