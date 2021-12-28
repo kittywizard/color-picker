@@ -1,6 +1,7 @@
 import React from 'react'
 import ColorBox from "./ColorBox";
 import randomHex from './randomHex';
+import Header from './Header';
 
 export default function App() {
 
@@ -43,8 +44,13 @@ export default function App() {
       ))
 
   return ( 
+    <div>
+    <Header />
       <div className= "container">
           {displayArr}
       </div>
+
+    </div>
+
   )
 }
